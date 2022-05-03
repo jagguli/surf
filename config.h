@@ -19,7 +19,7 @@ static Parameter defconfig[ParameterLast] = {
 	[AccessWebcam]        =       { { .i = 0 },     },
 	[Certificate]         =       { { .i = 0 },     },
 	[CaretBrowsing]       =       { { .i = 0 },     },
-	[CookiePolicies]      =       { { .v = "@Aa" }, },
+	[CookiePolicies]      =       { { .v = "A" }, },
 	[DarkMode]            =       { { .i = 0 },     },
 	[DefaultCharset]      =       { { .v = "UTF-8" }, },
 	[DiskCache]           =       { { .i = 1 },     },
@@ -37,6 +37,9 @@ static Parameter defconfig[ParameterLast] = {
 	[LoadImages]          =       { { .i = 1 },     },
 	[MediaManualPlay]     =       { { .i = 1 },     },
 	[PreferredLanguages]  =       { { .v = (char *[]){ NULL } }, },
+	[ProxyIgnoreHosts]    =       { { .v = (char *[]){ "id.atlassian.com,atlassian.com,streethawk.atlassian.net,t.castle.io,gitlab.com,github.com" } }, },
+	[ProxyMode]           =       { { .i = CustomProxy }, },
+	[ProxyUrl]            =       { { .v = (char *) "http://localhost:8118" }, },
 	[RunInFullscreen]     =       { { .i = 0 },     },
 	[ScrollBars]          =       { { .i = 1 },     },
 	[ShowIndicators]      =       { { .i = 1 },     },
@@ -48,7 +51,7 @@ static Parameter defconfig[ParameterLast] = {
 	[Style]               =       { { .i = 1 },     },
 	[WebGL]               =       { { .i = 0 },     },
 	[ZoomLevel]           =       { { .f = 1.0 },   },
-	[ClipboardNotPrimary] =				{ { .i = 1 },			},
+	[ClipboardNotPrimary] =				{ { .i = 0 },			},
 };
 
 static UriParameters uriparams[] = {
