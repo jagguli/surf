@@ -6,6 +6,8 @@ static char *styledir       = "~/.surf/styles/";
 static char *certdir        = "~/.surf/certificates/";
 static char *cachedir       = "~/.surf/cache/";
 static char *cookiefile     = "~/.surf/cookies.txt";
+static char *dldir          = "~/dl/";
+static char *dlstatus       = "~/.surf/dlstatus/";
 
 /* Webkit default features */
 /* Highest priority value will be used.
@@ -81,13 +83,12 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
         } \
 }
 
-/* DOWNLOAD(URI, referer) */
-#define DOWNLOAD(u, r) { \
+#define DLSTATUS { \
         .v = (const char *[]){ "st", "-e", "/bin/sh", "-c",\
-             "curl -g -L -J -O -A \"$1\" -b \"$2\" -c \"$2\"" \
-             " -e \"$3\" \"$4\"; read", \
-             "surf-download", useragent, cookiefile, r, u, NULL \
-        } \
+            "while true; do cat $1/* 2>/dev/null || echo \"no hay descargas\";"\
+            "A=; read A; "\
+            "if [ $A = \"clean\" ]; then rm $1/*; fi; clear; done",\
+            "surf-dlstatus", dlstatus, NULL } \
 }
 
 /* PLUMB(URI) */
