@@ -3,7 +3,7 @@
 
 _pkgname=surf
 pkgname=$_pkgname-git
-pkgver=2.1.r10.g43d970c
+pkgver=2.1.r12.g475d746
 pkgrel=1
 pkgdesc="a WebKit based browser"
 arch=('i686' 'x86_64')
